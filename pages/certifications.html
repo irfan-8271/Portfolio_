@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="shortcut icon" type="image/x-icon" href="./../images/icon.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Md Irfan - student learns software development and web development.">
+  <meta name="keywords" content="web development, software development, MAKAUT">
+  <title>Md Irfan -Software Developer </title>
+  <link rel="icon" href="../images/icon.png" type="image/png">
+  <link rel="stylesheet" href="../css/variables.css">
+  <link rel="stylesheet" href="../css/certificates.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body class="software-mode" id="top">
+  <!-- Header -->
+  <header id="header">
+    <nav>
+      <div class="header-title">Md Irfan</div>
+      <button class="menu-icon" id="menu-icon" aria-label="Toggle Menu">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="header-links" id="header-links">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#about">About</a>
+        <a href="./certifications.html" class="active-link">Certifications</a>
+        <a href="./projects.html" data-aos="fade-down" data-aos-delay="300" >Projects</a>
+        <a href="../index.html#skills" data-aos="fade-down" data-aos-delay="500">Skills</a>
+        <a href="../index.html#contact">Contact</a>
+      </div>
+      <div class="header-buttons">
+        <a href="https://github.com/irfan-8271" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/md-irfan-6979303a6/" target="_blank" aria-label="LinkedIn"><i
+            class="fab fa-linkedin"></i></a>
+        <button id="mode-toggle" title="Switch Mode" aria-label="Switch Mode">
+          <i class="fas fa-code"></i>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Certifications Section -->
+  <main>
+    <section id="certifications" class="animate__animated animate__fadeIn" data-aos="fade-up">
+      <h2 data-aos="fade-up">Certifications</h2>
+      <div href="" class="certificate-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="certificate-image">
+            <img src="../images/certjava.png" loading="lazy" alt="Cer">
+          </div>
+          <h3>Java OOPs</h3>
+          <p>100 hours training on Object Oriented Programming in Java conducted by <a href="https://codersdome.com/">CODERSDOME PVT. LTD. PUNE</a></p>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Scroll-to-Top Button -->
+  <button id="scroll-to-top" title="Go to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer role="contentinfo" id="contact">
+    <h2 data-aos="fade-down" data-aos-duration="800">Contact Me</h2>
+    <div class="contact-icons">
+      <a href="https://www.linkedin.com/in/md-irfan-6979303a6/" target="_blank" aria-label="LinkedIn"
+          data-aos="flip-left" data-aos-duration="600" data-aos-delay="200"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/irfan-8271" target="_blank" aria-label="GitHub" data-aos="flip-up"
+          data-aos-duration="600" data-aos-delay="400"><i class="fab fa-github"></i></a>
+        <a href="mailto:mdi720408@gmail.com" aria-label="Email" data-aos="flip-right" data-aos-duration="600"
+          data-aos-delay="600"><i class="fas fa-envelope"></i></a>
+    </div>
+    <p>&copy; 2025 Md Irfan. All rights reserved.</p>
+  </footer>
+
+  <script src="../Scripts/scripts.js"></script>
+  <script src="../Scripts/certificate.js"></script>
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    // Initialize AOS
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true,
+      offset: 100
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      if ('loading' in HTMLImageElement.prototype) {
+        // Native lazy loading is supported
+        return;
+      }
+      // Fallback for browsers that don't support loading="lazy"
+      const images = document.querySelectorAll('img[loading="lazy"]');
+      const config = {
+        rootMargin: '200px 0px',
+        threshold: 0.01
+      };
+      let observer = new IntersectionObserver(function (entries, self) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            let img = entry.target;
+            img.src = img.dataset.src || img.src;
+            self.unobserve(img);
+          }
+        });
+      }, config);
+
+      images.forEach(img => {
+        // If using data-src, set src to a placeholder and real src to data-src
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+        }
+        observer.observe(img);
+      });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const cards = document.querySelectorAll('.certificate-card');
+      const revealOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+      };
+      const revealOnScroll = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, revealOptions);
+
+      cards.forEach(card => {
+        revealOnScroll.observe(card);
+      });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,99 +1,495 @@
-* {
+/* CSS Variables for Colors */
+:root {
+    --primary-color: #00b894;
+    /* Green */
+    --secondary-color: #ff7675;
+    /* Soft Red */
+    --background-color: #1e1e2f;
+    /* Dark Blue */
+    --text-color: #e0e0e0;
+    /* Light Gray */
+    --accent-color: #6c5ce7;
+    /* Purple (for accents) */
+    --card-background: rgba(255, 255, 255, 0.1);
+    /* Semi-transparent white */
+    --hover-effect: rgba(255, 255, 255, 0.2);
+    /* Hover effect */
+    --footer-color: #121212;
+    /* Darker background for footer */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* General Styles */
+body {
+    font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    background-color: #d38080;
-    color: #333;
-}
-
-header {
-    background: #5bdb62;
-    color: white;
-    padding: 20px;
     text-align: center;
-    border-radius: 30px 30px 30px 30px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition:
+        background-color 0.5s,
+        color 0.5s;
+}
+
+/* Header */
+#header {
+    padding: 15px 20px;
+    background: var(--background-color);
+    backdrop-filter: blur(15px);
+    color: white;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    display: flex;
     justify-content: space-between;
     align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition:
+        opacity 0.5s,
+        background 0.5s,
+        transform 0.5s;
+    animation: slideDown 0.5s ease-in-out;
 }
 
-.main {
-    display: flex; 
-    align-items: center; 
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+
+    to {
+        transform: translateY(0);
+    }
 }
 
-.navbar {
-    list-style: none;
-    padding: 0;
-    margin: 0; 
-    display: flex; 
-}
-
-.navbar li {
-    margin-left: 20px;
-}
-
-.navbar a {
-    text-decoration: none; 
-}
-
-section {
-    padding: 20px;
-    margin: 20px;
-    background: rgb(255, 255, 255);
-    border-radius: 8px;
-}
-
-h1{
-    color: #f6faf7;
-margin-bottom: 10px;
-font-family: 'Algerian',serif;
-}
-
-h2 {
-    color: #5bdb62;
-    margin-bottom: 10px;
-}
-
-.about-container {
-    display: flex;
-    align-items: center; 
-}
-
-.about-image {
-    margin-right: 20px; 
-    width: 150px;
-    height: auto;
-}
-
-.skill {
-    margin: 10px 0;
-}
-
-.skill-bar {
-    background: #e0e0e0;
-    border-radius: 10px;
-    overflow: hidden;
-    height: 20px;
-}
-
-.skill-percentage {
-    background: #6ccbf8;
-    color: white;
-    text-align: center;
-    line-height: 20px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background: #5bdb62;
-    color: white;
+.header-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(0, 184, 148, 0.7);
+    animation: fadeIn 1s ease-in-out;
     position: relative;
-    bottom: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
 }
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply fadeIn animation to sections */
+#about,
+#projects,
+#certificates,
+#contact {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.header-links {
+    display: flex;
+    gap: 20px;
+}
+
+.header-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition:
+        color 0.3s,
+        transform 0.3s;
+}
+
+.header-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.header-links a:hover {
+    color: var(--primary-color);
+    transform: translateY(-2px);
+}
+
+.header-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
+    /* Push buttons to the right */
+}
+
+header nav button {
+    background: var(--card-background);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition:
+        background 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+header nav button:hover {
+    background: var(--hover-effect);
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Hamburger Menu for Small Screens */
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: var(--primary-color);
+    animation: fadeIn 1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    .header-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        /* Adjusted to slide down a bit */
+        right: 20px;
+        background: var(--background-color);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        animation: slideIn 0.5s ease-in-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    .header-links.active {
+        display: flex;
+    }
+}
+
+/* Call-to-Action Buttons */
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition:
+        background 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
+    margin: 10px;
+}
+
+/* .cta-button:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.5);
+} */
+
+/* Social Media Links */
+.contact-icons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.contact-icons a {
+    color: white;
+    font-size: 24px;
+    transition:
+        transform 0.3s,
+        color 0.3s;
+}
+
+.contact-icons a:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* About Section - Floating Box with Animation */
+#about {
+    padding: 150px 20px 50px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.about-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("./images/download.jpg");
+    /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+    opacity: 0.3;
+    filter: blur(5px);
+}
+
+/* On smaller screens, stack the image above the text */
+@media (max-width: 768px) {
+    .about-box {
+        flex-direction: column;
+        /* Stack image and text vertically */
+        text-align: center;
+        /* Center-align text on smaller screens */
+    }
+
+    .profile-image {
+        width: 70%;
+        /* Adjust image size for smaller screens */
+        margin-bottom: 20px;
+        /* Add space between image and text */
+        transition:
+            transform 0.5s ease-in-out,
+            opacity 0.5s ease-in-out;
+        /* Smooth transition */
+        opacity: 1;
+        /* Ensure the image is visible by default */
+        transform: translateY(0);
+        /* Reset transform */
+    }
+
+    /* Add a slide-up effect when the image moves above the text */
+    .about-box.active .profile-image {
+        transform: translateY(-20px);
+        /* Initial position (slightly above) */
+        opacity: 0;
+        /* Start invisible */
+    }
+
+    .about-box.active .profile-image.animate {
+        transform: translateY(0);
+        /* Move to final position */
+        opacity: 1;
+        /* Fade in */
+    }
+}
+
+.profile-image {
+    width: 50%;
+    /* Adjust as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+    border-radius: 10%;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
+    transition:
+        transform 0.5s,
+        box-shadow 0.5s;
+    animation: fadeIn 1.5s ease-in-out;
+    object-fit: cover;
+    /* Fix image appearance */
+}
+
+.profile-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 184, 148, 0.7);
+}
+
+.bio {
+    flex: 1;
+    /* Allow text to take remaining space */
+    text-align: left;
+    /* Align text to the left */
+}
+
+.cv-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition:
+        background 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.cv-button:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.5);
+}
+
+/* Floating Animation for About Box */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.about-box {
+    background: var(--card-background);
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 90%;
+    /* Increased width to accommodate image and text side by side */
+
+    text-align: center;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0);
+    transition:
+        transform 0.5s,
+        box-shadow 0.5s;
+    animation: float 3s infinite ease-in-out;
+    display: flex;
+    flex-direction: row;
+    /* Image and text side by side by default */
+    align-items: center;
+    gap: 20px;
+    /* Space between image and text */
+}
+
+.about-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.profile-image {
+    width: 20%;
+    height: 50%;
+    border-radius: 10%;
+    margin-bottom: 20px;
+    border: 3px solid var(--primary-color);
+    box-shadow: 0 0 20px rgba(0, 184, 148, 0.5);
+    transition:
+        transform 0.5s,
+        box-shadow 0.5s;
+    animation: fadeIn 1.5s ease-in-out;
+    object-fit: cover;
+    /* Fix image appearance */
+}
+
+.profile-image:hover {
+    transform: scale(1.009);
+    box-shadow: 0 0 30px rgba(0, 184, 148, 0.7);
+}
+
+.cv-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition:
+        background 0.3s,
+        transform 0.3s,
+        box-shadow 0.3s;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.cv-button:hover {
+    background: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.5);
+}
+
+/* Projects Section with Animation */
+#projects {
+    padding: 50px 20px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background: var(--card-background);
+    padding: 20px;
+    border-radius: 10px;
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        background 0.3s;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: var(--hover-effect);
+}
+
+/* General Section Styling */
+#skills,
+#education{
+    padding: 60px 10%;
+    text-align: center;
+    background-color: var(--background-color);
+    color: white;
+}
+
+/* Section Headings */
+#skills h2,
+#education h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+
+/* Footer */
+footer {
+    background: var(--footer-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 50px;
+}
+
