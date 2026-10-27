@@ -1,4 +1,3 @@
-
 /* Base Styles and Global Resets */
 * {
     margin: 0;
@@ -36,7 +35,6 @@ body::before {
     filter: brightness(40%);
     z-index: -1;
 }
-
 
 h1, h2, h3, h4, h5, h6 {
     font-weight: 700;
@@ -97,44 +95,10 @@ section {
     background: var(--accent-color);
 }
 
-/* Animation classes */
-.fade-in {
-    animation: fadeIn 1s ease-in-out;
-}
-
-.slide-up {
-    animation: slideUp 0.6s ease-in-out;
-}
-
-.slide-right {
-    animation: slideRight 0.6s ease-in-out;
-}
-
-.slide-left {
-    animation: slideLeft 0.6s ease-in-out;
-}
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-}
-
-@keyframes slideRight {
-    from { transform: translateX(-30px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-@keyframes slideLeft {
-    from { transform: translateX(30px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-}
-
-
 
 /* Typing Effect Cursor */
 #Effect-Write {
@@ -150,38 +114,8 @@ section {
     max-width: 600px; /* Adjust based on the longest phrase */
     text-align: left; /* Align text to the left */
     vertical-align: middle; /* Align cursor with text */
-  }
-  
-  .typing-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 20px; /* Space between the text and button */
-  }
+}
 
-  .cursor-blink {
-    animation: blink 0.7s step-end infinite;
-  }
-  
-  @keyframes blink {
-    50% {
-      border-color: transparent;
-    }
-  }
-  
-  /* Add fade-in animation for the text */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
-
-
-h3{
+h3 {
     color: var(--primary-color);
 }

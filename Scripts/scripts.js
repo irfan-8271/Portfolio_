@@ -195,21 +195,14 @@ function handleResize() {
     }
 }
 
-// Add event listener for window resize
+// Add event listener for window resize and page load
 window.addEventListener('resize', handleResize);
-
-// Call handleResize on page load to apply the correct layout
 document.addEventListener('DOMContentLoaded', handleResize);
 
-// Trigger the effect on page load and window resize
-window.addEventListener('resize', handleResize);
-window.addEventListener('load', handleResize);
-
-// Scroll-to-Top Button (Fixed)
-const scrollToTopButton = document.getElementById('scroll-to-top');
-
-if (scrollToTopButton) {
-    scrollToTopButton.addEventListener('click', () => {
+// Scroll-to-Top Button
+const scrollToTopBtn = document.getElementById('scroll-to-top');
+if (scrollToTopBtn) {
+    scrollToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 }

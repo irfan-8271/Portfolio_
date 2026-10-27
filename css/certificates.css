@@ -53,14 +53,13 @@
     padding: 25px;
     width: 300px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     border: 1px solid rgba(255, 255, 255, 0.1);
     display: block;
     text-decoration: none;
     color: inherit;
     opacity: 0;
     transform: translateY(40px);
-    transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+    transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1), box-shadow var(--transition-speed), border-color var(--transition-speed);
 }
 
 .certificate-card.visible {
@@ -107,72 +106,6 @@
     margin-bottom: 20px;
 }
 
-/* Certificate Details Page Styles */
-#certificate-details {
-    padding: 100px 5%;
-    background-color: var(--background-color);
-    color: white;
-    min-height: calc(100vh - 200px);
-}
-
-.certificate-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 50px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.certificate-image-full {
-    flex: 1;
-    min-width: 300px;
-    max-width: 600px;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
-
-.certificate-image-full img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.certificate-info {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-}
-
-.certificate-info h2 {
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: 20px;
-}
-
-.certificate-info p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
-    color: var(--text-color);
-}
-
-.back-button {
-    display: inline-block;
-    background: var(--primary-color);
-    color: white;
-    padding: 12px 25px;
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    margin-top: 30px;
-    transition: background 0.3s ease;
-}
-
-.back-button:hover {
-    background: var(--primary-hover-color);
-}
-
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .certificate-grid {
@@ -182,10 +115,5 @@
     .certificate-card {
         width: 100%;
         max-width: 350px;
-    }
-
-    .certificate-container {
-        flex-direction: column;
-        gap: 30px;
     }
 }

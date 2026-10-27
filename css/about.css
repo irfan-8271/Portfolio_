@@ -1,63 +1,4 @@
-
-
-/* About Section - Floating Card Effect */
-.about-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 10%;
-    min-height: 500px;
-    overflow: hidden;
-}
-  
-.about-image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-    opacity: 0.4;
-    filter: blur(8px);
-    transform: scale(1.1);
-    transition: all 0.8s ease-in-out;
-}
-  
-.about-card {
-    background: var(--card-background);
-    padding: 50px;
-    max-width: 650px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    text-align: center;
-    backdrop-filter: blur(15px);
-    position: relative;
-    z-index: 2;
-    border-left: 5px solid var(--primary-color);
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.about-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-}
-
-/* About box with background */
-.about-box {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    background: var(--card-background);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-    backdrop-filter: blur(15px);
-    transition: transform 0.4s ease, flex-direction 0.5s ease;
-    position: relative;
-    z-index: 1;
-}
-
-/* Add a background behind the about box */
+/* About Section Styling */
 #about {
     position: relative;
     background: linear-gradient(
@@ -89,6 +30,20 @@
     z-index: -1;
 }
 
+.about-box {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: var(--card-background);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    transition: transform 0.4s ease, flex-direction 0.5s ease;
+    position: relative;
+    z-index: 1;
+}
+
 .about-box:hover {
     transform: translateY(-5px);
 }
@@ -101,7 +56,7 @@
     border: 5px solid var(--primary-color);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
-    flex-shrink: 0; /* Prevent image from shrinking */
+    flex-shrink: 0;
 }
 
 .profile-image:hover {
@@ -125,7 +80,18 @@
     font-size: 1.1rem;
 }
 
-/* Responsive design for about box */
+/* Responsive design for about section */
+@media (max-width: 992px) {
+    .about-box {
+        padding: 30px;
+    }
+    
+    .profile-image {
+        width: 250px;
+        height: 400px;
+    }
+}
+
 @media (max-width: 768px) {
     .about-box {
         flex-direction: column;
@@ -138,7 +104,7 @@
         height: 250px;
         border-radius: 50%;
         margin-bottom: 30px;
-        order: -1; /* Always put image first in mobile view */
+        order: -1;
     }
     
     .bio {
@@ -148,49 +114,12 @@
     .bio h1 {
         font-size: 2rem;
     }
-    
-    .about-card {
-        padding: 30px 20px;
-    }
 }
 
-/* Animation for about elements */
-.about-box.animate-in {
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Add smooth transition for responsive changes */
-@media (max-width: 992px) {
-    .about-box {
-        padding: 30px;
-    }
-    
-    .profile-image {
-        width: 250px;
-        height: 400px;
-    }
-}
-
-/* Additional responsive fixes */
 @media (max-width: 480px) {
     .profile-image {
         width: 200px;
         height: 200px;
-    }
-    
-    .about-card {
-        padding: 25px 15px;
     }
     
     .bio h1 {
@@ -201,4 +130,3 @@
         font-size: 1rem;
     }
 }
-

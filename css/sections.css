@@ -1,7 +1,5 @@
-
-
-/* General Section Styling for Skills, Services, Education, & Activities */
-#skills, #services, #education, #activities {
+/* General Section Styling for Skills & Education */
+#skills, #education {
     padding: 80px 10%;
     text-align: center;
     background-color: var(--background-color);
@@ -11,9 +9,7 @@
 }
 
 /* Section backgrounds with subtle pattern overlay */
-#skills::before, 
-#services::before,
-#activities::before {
+#skills::before {
     content: '';
     position: absolute;
     top: 0;
@@ -28,9 +24,7 @@
 
 /* Section headers with animated underline */
 #skills h2,
-#services h2,
-#education h2,
-#activities h2 {
+#education h2 {
     font-size: 2.8rem;
     margin-bottom: 50px;
     color: var(--primary-color);
@@ -43,9 +37,7 @@
 }
 
 #skills h2::after,
-#services h2::after,
-#education h2::after,
-#activities h2::after {
+#education h2::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -59,9 +51,7 @@
 }
 
 #skills:hover h2::after,
-#services:hover h2::after,
-#education:hover h2::after,
-#activities:hover h2::after {
+#education:hover h2::after {
     width: 120px;
 }
   
@@ -149,10 +139,10 @@
 #home {
     height: 100vh;
     display: flex;
-    flex-direction: column; /* Stack children in a column */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    background: linear-gradient(rgba(30, 30, 47, 0.7), rgba(30, 30, 47, 0.9)), url('/api/placeholder/1920/1080') center/cover no-repeat fixed;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(rgba(30, 30, 47, 0.7), rgba(30, 30, 47, 0.9));
     text-align: center;
     padding: 0 20px;
     margin-top: 0;
@@ -174,67 +164,20 @@
 }
 
 .home-content p {
-
     font-size: 1.5rem;
     margin-bottom: 40px;
     color: #e0e0e0;
 }
 
-/* Animated particles effect */
-.particles {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-}
-
 /* Contact section improvements */
 #contact {
     padding: 80px 10%;
-    background: linear-gradient(rgba(30, 30, 47, 0.8), rgba(30, 30, 47, 0.9)), url('/api/placeholder/1000/500') center/cover no-repeat fixed;
-}
-
-.contact-form {
-    max-width: 600px;
-    margin: 0 auto;
-    background: var(--card-background);
-    padding: 40px;
-    border-radius: var(--border-radius);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    margin-bottom: 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: none;
-    border-bottom: 2px solid var(--primary-color);
-    color: white;
-    border-radius: 5px;
-    font-family: inherit;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    box-shadow: 0 0 10px rgba(0, 184, 148, 0.3);
-}
-
-.contact-form textarea {
-    min-height: 150px;
-    resize: vertical;
+    background: linear-gradient(rgba(30, 30, 47, 0.8), rgba(30, 30, 47, 0.9));
 }
 
 @media (max-width: 768px) {
     #skills h2,
-    #services h2,
-    #education h2,
-    #activities h2 {
+    #education h2 {
         font-size: 2.2rem;
     }
     
@@ -247,9 +190,7 @@
     }
 }
 
-
-.home-section{
+.home-section {
     display: flex;
     flex-direction: row;
 }
-

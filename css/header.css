@@ -266,7 +266,6 @@ header nav button:hover,
     color: var(--primary-color);
     font-weight: 700;
     text-shadow: 0 0 15px var(--shadow-color, rgba(0, 184, 148, 0.5));
-    flex-wrap: wrap;
 }
   
 .header-links a.active-link::after {
@@ -275,7 +274,6 @@ header nav button:hover,
     background: var(--primary-color);
     height: 3px;
     box-shadow: 0 0 10px var(--shadow-color, rgba(0, 184, 148, 0.4));
-    flex-wrap: wrap;
 }
 
 /* Header background variable calculation - adds RGB variables for opacity support */

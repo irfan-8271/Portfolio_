@@ -130,22 +130,6 @@
     line-height: 1.5;
 }
 
-/* Update CTA button to look like a button but not be clickable */
-.project-card .cta-button {
-    display: inline-block;
-    margin: 0 15px 20px;
-    font-size: 0.9rem;
-    padding: 8px 20px;
-    background: var(--primary-color);
-    color: white;
-    border-radius: var(--border-radius);
-    transition: background 0.3s ease;
-    pointer-events: none; /* Prevent the button from being clickable */
-}
-
-.project-card:hover .cta-button {
-    background: var(--primary-hover-color);
-}
 
 
 /* Responsive adjustments */

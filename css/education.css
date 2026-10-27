@@ -4,8 +4,7 @@
     position: relative;
     text-align: center;
     padding: 100px 10%;
-    background: linear-gradient(rgba(20, 20, 40, 0.85), rgba(20, 20, 40, 0.95)), 
-                url('/api/placeholder/1000/500') center/cover no-repeat;
+    background: linear-gradient(rgba(20, 20, 40, 0.85), rgba(20, 20, 40, 0.95));
     background-attachment: fixed;
     border-radius: var(--border-radius);
 }
